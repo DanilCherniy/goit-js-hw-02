@@ -1,26 +1,23 @@
-const stock = 100;
-const invoice = 100;
-const message =
-  invoice <= stock
-    ? "Заказ оформлен, с вами свяжется менеджер"
-    : "На складе недостаточно товаров!";
-// Write code under this line
-// if (invoice <= stock) {
-//   message = 'Заказ оформлен, с вами свяжется менеджер';
-// } else {
-//   message = 'На складе недостаточно товаров!';
-// }
+const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
+  message.split(' ').length * pricePerWord;
 
-console.log(message);
-
-//если invoice равен 100
-// то значение message будет равно
-// 'Заказ оформлен, с вами свяжется менеджер'
-
-//если invoice равен 50
-// то значение message будет равно
-// 'Заказ оформлен, с вами свяжется менеджер'
-
-//если invoice равен 150
-// то значение message будет равно
-// 'На складе недостаточно товаров!'
+console.log(calculateEngravingPrice);
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    10,
+  ),
+); //80
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    20,
+  ),
+); //160
+console.log(
+  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+); //240
+console.log(
+  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+); //120
+console.log(calculateEngravingPrice('Uno', 100)); //100

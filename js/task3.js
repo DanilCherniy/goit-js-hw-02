@@ -1,51 +1,15 @@
-const userPassword = "jqueryismyjam";
+function findLongestWord(string = '') {
+  console.log(string.split(' '));
+  let longestWord = string.split(' ')[0];
 
-const ADMIN_PASSWORD = "jqueryismyjam";
-
-const CANCELED_BY_USER = "Отменено пользователем!";
-const ACCESS_IS_ALLOWED = "Добро пожаловать!";
-
-const ACCESS_DENIED = "Доступ запрещен, неверный пароль!";
-let message;
-
-// Write code under this line
-
-// switch (userPassword) {
-//   case ADMIN_PASSWORD:
-//     message = ACCESS_IS_ALLOWED;
-//     break;
-
-//   case 'null':
-//     message = CANCELED_BY_USER;
-//     break;
-
-//   case '123':
-//     message = ACCESS_DENIED;
-//     break;
-
-//   default:
-//     console.log(ACCESS_DENIED);
-// }
-
-if (userPassword === ADMIN_PASSWORD) {
-  message = ACCESS_IS_ALLOWED;
-} else if (userPassword === null) {
-  message = CANCELED_BY_USER;
-} else if (userPassword === "123") {
-  message = ACCESS_DENIED;
-} else {
-  message = ACCESS_DENIED;
+  for (const item of string.split(' ')) {
+    if (item.length > longestWord.length) {
+      longestWord = item;
+    }
+  }
+  return longestWord;
 }
-console.log(message);
 
-//если userPassword равно 'jqueryismyjam'
-// то значение message будет равно
-// 'Добро пожаловать!'
-
-//если userPassword равно  null
-// то значение message будет равно
-// 'Отменено пользователем!'
-
-//если userPassword равно '123'
-// то значение message будет равно
-// 'Доступ запрещен, неверный пароль!'
+console.log(findLongestWord('The quick brown fox jumped over the lazw dog')); //jumped
+console.log(findLongestWord('Google do a roll')); // Google
+console.log(findLongestWord('May the force be with you')); //force
